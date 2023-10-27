@@ -6,6 +6,8 @@ const path = require('path')
 
 app.use('/',rotas)
 
+app.use(express.static(__dirname + '/pagina'))  //  o middleware express.static serve arquivos estáticos da pasta "pagina"
+
 app.use('*',(req, res)=>{  // '*'atua como um middleware de manipulação de requisições curinga (catch-all)
     const filePath = path.join(__dirname, 'pagina', 'index.html')
     res.sendFile(path.join(filePath))
